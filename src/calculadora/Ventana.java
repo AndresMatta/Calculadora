@@ -105,7 +105,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
-        btn_MC5.setText("MC");
+        btn_MC5.setText("BS");
 
         btn_C.setText("C");
         btn_C.addActionListener(new java.awt.event.ActionListener() {
@@ -537,7 +537,13 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CActionPerformed
 
     private void btn_multiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_multiplicacionActionPerformed
-    lbl_concatenacion.setText(lbl_concatenacion.getText() + "*");
+   try{
+        if('*'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
+        lbl_concatenacion.setText(lbl_concatenacion.getText() + "*");
+    }
+    } catch(java.lang.StringIndexOutOfBoundsException e){
+        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
+    }
     if(!"0".equals(operacion)){
     this.btn_igualActionPerformed(evt);
     almacenado = "";
@@ -556,7 +562,6 @@ public class Ventana extends javax.swing.JFrame {
         operacion = "*";
         }
     }
-    
     }//GEN-LAST:event_btn_multiplicacionActionPerformed
 
     private void btn_igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_igualActionPerformed
@@ -593,7 +598,13 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_igualActionPerformed
 
     private void btn_sumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sumaActionPerformed
-    lbl_concatenacion.setText(lbl_concatenacion.getText() + "+");
+   try{
+        if('+'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
+        lbl_concatenacion.setText(lbl_concatenacion.getText() + "+");
+    }
+    } catch(java.lang.StringIndexOutOfBoundsException e){
+        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
+    }
     if(!"0".equals(operacion)){
     this.btn_igualActionPerformed(evt);
     almacenado = "";
@@ -615,7 +626,13 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_sumaActionPerformed
 
     private void btn_restaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_restaActionPerformed
-    lbl_concatenacion.setText(lbl_concatenacion.getText() + "-");
+    try{
+        if('-'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
+        lbl_concatenacion.setText(lbl_concatenacion.getText() + "-");
+    }
+    } catch(java.lang.StringIndexOutOfBoundsException e){
+        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
+    } 
     if(!"0".equals(operacion)){
     this.btn_igualActionPerformed(evt);
     almacenado = "";
@@ -637,7 +654,13 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_restaActionPerformed
 
     private void btn_divisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_divisionActionPerformed
-    lbl_concatenacion.setText(lbl_concatenacion.getText() + "/");
+    try{
+        if('/'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
+        lbl_concatenacion.setText(lbl_concatenacion.getText() + "/");
+    }
+    } catch(java.lang.StringIndexOutOfBoundsException e){
+        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
+    }
     if(!"0".equals(operacion)){
     this.btn_igualActionPerformed(evt);
     almacenado = "";
