@@ -125,6 +125,7 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         btn_C.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btn_C.setMnemonic('c');
         btn_C.setText("C");
         btn_C.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
