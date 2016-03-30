@@ -19,8 +19,9 @@ public class Ventana extends javax.swing.JFrame {
     String almacenado = "";
     String almacenado2;
     String operacion = "0";
-    float resultado;
-    float porcentaje;
+    double numeroM=0;
+    double resultado;
+    double porcentaje;
     boolean concatenacion = false;
     
     public Ventana() {
@@ -42,7 +43,7 @@ public class Ventana extends javax.swing.JFrame {
         btn_3 = new javax.swing.JButton();
         btn_4 = new javax.swing.JButton();
         btn_7 = new javax.swing.JButton();
-        btn_MC5 = new javax.swing.JButton();
+        btn_borrar = new javax.swing.JButton();
         btn_C = new javax.swing.JButton();
         btn_CE = new javax.swing.JButton();
         btn_MR = new javax.swing.JButton();
@@ -75,8 +76,15 @@ public class Ventana extends javax.swing.JFrame {
         lbl_resultado.setToolTipText("");
         lbl_resultado.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
 
+        btn_M1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btn_M1.setText("M+");
+        btn_M1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_M1ActionPerformed(evt);
+            }
+        });
 
+        btn_masmenos.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btn_masmenos.setText("±");
         btn_masmenos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +92,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_3.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 11)); // NOI18N
         btn_3.setText("3");
         btn_3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +100,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_4.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 11)); // NOI18N
         btn_4.setText("4");
         btn_4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +108,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_7.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 11)); // NOI18N
         btn_7.setText("7");
         btn_7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,8 +116,15 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
-        btn_MC5.setText("BS");
+        btn_borrar.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        btn_borrar.setText("←");
+        btn_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_borrarActionPerformed(evt);
+            }
+        });
 
+        btn_C.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btn_C.setText("C");
         btn_C.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,10 +132,23 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_CE.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btn_CE.setText("CE");
+        btn_CE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CEActionPerformed(evt);
+            }
+        });
 
+        btn_MR.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btn_MR.setText("MR");
+        btn_MR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MRActionPerformed(evt);
+            }
+        });
 
+        btn_8.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 11)); // NOI18N
         btn_8.setText("8");
         btn_8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +156,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_5.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 11)); // NOI18N
         btn_5.setText("5");
         btn_5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,6 +164,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_2.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 11)); // NOI18N
         btn_2.setText("2");
         btn_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +179,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_mc.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btn_mc.setText("MC");
         btn_mc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,8 +187,15 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_MS.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btn_MS.setText("MS");
+        btn_MS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MSActionPerformed(evt);
+            }
+        });
 
+        btn_9.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 11)); // NOI18N
         btn_9.setText("9");
         btn_9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +203,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_6.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 11)); // NOI18N
         btn_6.setText("6");
         btn_6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,6 +211,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_1.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 11)); // NOI18N
         btn_1.setText("1");
         btn_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +226,13 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_M2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btn_M2.setText("M-");
+        btn_M2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_M2ActionPerformed(evt);
+            }
+        });
 
         btn_resta.setText("-");
         btn_resta.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +242,11 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         btn_MOD.setText("MOD");
+        btn_MOD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MODActionPerformed(evt);
+            }
+        });
 
         btn_porcentaje.setText("%");
         btn_porcentaje.addActionListener(new java.awt.event.ActionListener() {
@@ -201,6 +255,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_coma.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 11)); // NOI18N
         btn_coma.setText(",");
         btn_coma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +270,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        btn_0.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 11)); // NOI18N
         btn_0.setText("0");
         btn_0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,10 +294,12 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(lbl_concatenacion, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_MC5)
+                                .addComponent(btn_borrar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_C, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -281,7 +339,7 @@ public class Ventana extends javax.swing.JFrame {
                                     .addComponent(btn_2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btn_1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
@@ -297,20 +355,15 @@ public class Ventana extends javax.swing.JFrame {
                                     .addComponent(btn_resta, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btn_suma, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(btn_igual, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_concatenacion, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(btn_igual, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_0, btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_coma});
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_MOD, btn_division, btn_igual, btn_multiplicacion, btn_porcentaje, btn_resta, btn_suma});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_C, btn_CE, btn_M1, btn_M2, btn_MC5, btn_MR, btn_MS, btn_masmenos, btn_mc});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_C, btn_CE, btn_M1, btn_M2, btn_MR, btn_MS, btn_borrar, btn_masmenos, btn_mc});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,25 +371,9 @@ public class Ventana extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(lbl_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_concatenacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_division, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_MOD))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_multiplicacion)
-                            .addComponent(btn_porcentaje))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_resta, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_suma, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btn_igual, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbl_concatenacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -349,7 +386,7 @@ public class Ventana extends javax.swing.JFrame {
                                     .addComponent(btn_mc))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_MC5)
+                            .addComponent(btn_borrar)
                             .addComponent(btn_C)
                             .addComponent(btn_CE)
                             .addComponent(btn_masmenos))
@@ -373,7 +410,22 @@ public class Ventana extends javax.swing.JFrame {
                                 .addGap(9, 9, 9)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btn_coma)
-                                    .addComponent(btn_0))))))
+                                    .addComponent(btn_0)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_division, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_MOD))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_multiplicacion)
+                            .addComponent(btn_porcentaje))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_resta, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_suma, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn_igual, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -386,6 +438,9 @@ public class Ventana extends javax.swing.JFrame {
 
     private void btn_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_7ActionPerformed
 
+  if(lbl_resultado.getText().length()>=10){
+      JOptionPane.showMessageDialog(null, "El limite es de 10 digitos", "Advertencia",JOptionPane.WARNING_MESSAGE);
+  }else{
     if(almacenado.length()==0&&concatenacion == true){
         lbl_resultado.setText("0");
     }
@@ -397,10 +452,14 @@ public class Ventana extends javax.swing.JFrame {
     lbl_resultado.setText(lbl_resultado.getText() +"7");
     almacenado = almacenado + "7";
     }
+  }
     }//GEN-LAST:event_btn_7ActionPerformed
 
     private void btn_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_8ActionPerformed
-     if(almacenado.length()==0&&concatenacion == true){
+    if(lbl_resultado.getText().length()>=10){
+      JOptionPane.showMessageDialog(null, "El limite es de 10 digitos", "Advertencia",JOptionPane.WARNING_MESSAGE);
+  }else{
+        if(almacenado.length()==0&&concatenacion == true){
         lbl_resultado.setText("0");
     }
     lbl_concatenacion.setText(lbl_concatenacion.getText() + "8");
@@ -411,10 +470,14 @@ public class Ventana extends javax.swing.JFrame {
     lbl_resultado.setText(lbl_resultado.getText() +"8");
     almacenado = almacenado + "8";
     }
+   }
     }//GEN-LAST:event_btn_8ActionPerformed
 
     private void btn_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_9ActionPerformed
-     if(almacenado.length()==0&&concatenacion == true){
+    if(lbl_resultado.getText().length()>=10){
+      JOptionPane.showMessageDialog(null, "El limite es de 10 digitos", "Advertencia",JOptionPane.WARNING_MESSAGE);
+  }else{
+        if(almacenado.length()==0&&concatenacion == true){
         lbl_resultado.setText("0");
     }
     lbl_concatenacion.setText(lbl_concatenacion.getText() + "9");
@@ -425,10 +488,14 @@ public class Ventana extends javax.swing.JFrame {
     lbl_resultado.setText(lbl_resultado.getText() +"9");
     almacenado = almacenado + "9";
     }
+   }
     }//GEN-LAST:event_btn_9ActionPerformed
 
     private void btn_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_4ActionPerformed
-     if(almacenado.length()==0&&concatenacion == true){
+   if(lbl_resultado.getText().length()>=10){
+      JOptionPane.showMessageDialog(null, "El limite es de 10 digitos", "Advertencia",JOptionPane.WARNING_MESSAGE);
+  }else{
+        if(almacenado.length()==0&&concatenacion == true){
         lbl_resultado.setText("0");
     }
     lbl_concatenacion.setText(lbl_concatenacion.getText() + "4");
@@ -439,10 +506,14 @@ public class Ventana extends javax.swing.JFrame {
     lbl_resultado.setText(lbl_resultado.getText() +"4");
     almacenado = almacenado + "4";
     }
+   }
     }//GEN-LAST:event_btn_4ActionPerformed
 
     private void btn_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_5ActionPerformed
-     if(almacenado.length()==0&&concatenacion == true){
+    if(lbl_resultado.getText().length()>=10){
+      JOptionPane.showMessageDialog(null, "El limite es de 10 digitos", "Advertencia",JOptionPane.WARNING_MESSAGE);
+  }else{
+        if(almacenado.length()==0&&concatenacion == true){
         lbl_resultado.setText("0");
     }
     lbl_concatenacion.setText(lbl_concatenacion.getText() + "5");
@@ -453,10 +524,14 @@ public class Ventana extends javax.swing.JFrame {
     lbl_resultado.setText(lbl_resultado.getText() +"5");
     almacenado = almacenado + "5";
     }
+   }
     }//GEN-LAST:event_btn_5ActionPerformed
 
     private void btn_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_6ActionPerformed
-     if(almacenado.length()==0&&concatenacion == true){
+    if(lbl_resultado.getText().length()>=10){
+      JOptionPane.showMessageDialog(null, "El limite es de 10 digitos", "Advertencia",JOptionPane.WARNING_MESSAGE);
+  }else{
+        if(almacenado.length()==0&&concatenacion == true){
         lbl_resultado.setText("0");
     }
     lbl_concatenacion.setText(lbl_concatenacion.getText() + "6");
@@ -467,10 +542,14 @@ public class Ventana extends javax.swing.JFrame {
     lbl_resultado.setText(lbl_resultado.getText() +"6");
     almacenado = almacenado + "6";
     }
+   }
     }//GEN-LAST:event_btn_6ActionPerformed
 
     private void btn_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_3ActionPerformed
-     if(almacenado.length()==0&&concatenacion == true){
+   if(lbl_resultado.getText().length()>=10){
+      JOptionPane.showMessageDialog(null, "El limite es de 10 digitos", "Advertencia",JOptionPane.WARNING_MESSAGE);
+  }else{
+        if(almacenado.length()==0&&concatenacion == true){
         lbl_resultado.setText("0");
     }
     lbl_concatenacion.setText(lbl_concatenacion.getText() + "3");
@@ -481,25 +560,32 @@ public class Ventana extends javax.swing.JFrame {
     lbl_resultado.setText(lbl_resultado.getText() +"3");
     almacenado = almacenado + "3";
     }
+   } 
     }//GEN-LAST:event_btn_3ActionPerformed
 
     private void btn_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_2ActionPerformed
-     if(almacenado.length()==0&&concatenacion == true){
+    if(lbl_resultado.getText().length()>=10){
+      JOptionPane.showMessageDialog(null, "El limite es de 10 digitos", "Advertencia",JOptionPane.WARNING_MESSAGE);
+  }else{
+        if(almacenado.length()==0&&concatenacion == true){
          lbl_resultado.setText("0");
      }
     lbl_concatenacion.setText(lbl_concatenacion.getText() + "2");
     if(lbl_resultado.getText().equals("0")){
         lbl_resultado.setText("2");
         almacenado = "2";
-    }
-    else{    
+    }else{    
     lbl_resultado.setText(lbl_resultado.getText() +"2");
     almacenado = almacenado + "2";
     }
+   }
     }//GEN-LAST:event_btn_2ActionPerformed
 
     private void btn_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_1ActionPerformed
-     if(almacenado.length()==0&&concatenacion == true){
+   if(lbl_resultado.getText().length()>=10){
+      JOptionPane.showMessageDialog(null, "El limite es de 10 digitos", "Advertencia",JOptionPane.WARNING_MESSAGE);
+  }else{
+        if(almacenado.length()==0&&concatenacion == true){
         lbl_resultado.setText("0");
     }
     lbl_concatenacion.setText(lbl_concatenacion.getText() + "1");
@@ -510,10 +596,14 @@ public class Ventana extends javax.swing.JFrame {
     lbl_resultado.setText(lbl_resultado.getText() +"1");
     almacenado = almacenado + "1";
     }
+   }  
     }//GEN-LAST:event_btn_1ActionPerformed
 
     private void btn_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_0ActionPerformed
-     if(almacenado.length()==0&&concatenacion == true){
+    if(lbl_resultado.getText().length()>=10){
+      JOptionPane.showMessageDialog(null, "El limite es de 10 digitos", "Advertencia",JOptionPane.WARNING_MESSAGE);
+  }else{
+        if(almacenado.length()==0&&concatenacion == true){
         lbl_resultado.setText("0");
     }
     lbl_concatenacion.setText(lbl_concatenacion.getText() + "0");
@@ -524,6 +614,7 @@ public class Ventana extends javax.swing.JFrame {
     lbl_resultado.setText(lbl_resultado.getText()+"0");
     almacenado = almacenado + "0";
     }
+   } 
     }//GEN-LAST:event_btn_0ActionPerformed
 
     private void btn_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CActionPerformed
@@ -540,10 +631,8 @@ public class Ventana extends javax.swing.JFrame {
    try{
         if('*'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
         lbl_concatenacion.setText(lbl_concatenacion.getText() + "*");
-    }
-    } catch(java.lang.StringIndexOutOfBoundsException e){
-        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
-    }
+    
+    } 
     if(!"0".equals(operacion)){
     this.btn_igualActionPerformed(evt);
     almacenado = "";
@@ -562,48 +651,64 @@ public class Ventana extends javax.swing.JFrame {
         operacion = "*";
         }
     }
+    }catch(java.lang.StringIndexOutOfBoundsException e){
+        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
+    }
     }//GEN-LAST:event_btn_multiplicacionActionPerformed
 
     private void btn_igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_igualActionPerformed
+      try{ 
         switch (operacion) {
             case "*":
-                resultado = Float.parseFloat(almacenado2)*Float.parseFloat(almacenado);
+                resultado = Double.parseDouble(almacenado2)*Double.parseDouble(almacenado);
                 lbl_resultado.setText(String.valueOf(resultado));
                 almacenado2 = String.valueOf(resultado);
                 operacion = "0";
                 concatenacion = true;
+                almacenado = "";
                 break;
             case "+":
-                resultado = Float.parseFloat(almacenado2)+Float.parseFloat(almacenado);
+                resultado = Double.parseDouble(almacenado2)+Double.parseDouble(almacenado);
                 lbl_resultado.setText(String.valueOf(resultado));
                 almacenado2 = String.valueOf(resultado);
                 operacion = "0";
                 concatenacion = true;
+                almacenado = "";
                 break;
             case "-":
-                resultado = Float.parseFloat(almacenado2)-Float.parseFloat(almacenado);
+                resultado = Double.parseDouble(almacenado2)-Double.parseDouble(almacenado);
                 lbl_resultado.setText(String.valueOf(resultado));
                 almacenado2 = String.valueOf(resultado);
                 operacion = "0";
                 concatenacion = true;
+                almacenado = "";
                 break;
             case"/":
-                resultado = Float.parseFloat(almacenado2)/Float.parseFloat(almacenado);
+                resultado = Double.parseDouble(almacenado2)/Double.parseDouble(almacenado);
                 lbl_resultado.setText(String.valueOf(resultado));
                 almacenado2 = String.valueOf(resultado);
                 operacion = "0";
                 concatenacion = true;
+                almacenado = "";
+                break;
+            case"m":
+                resultado = Double.parseDouble(almacenado2)%Double.parseDouble(almacenado);
+                lbl_resultado.setText(String.valueOf(resultado));
+                almacenado2 = String.valueOf(resultado);
+                operacion = "0";
+                concatenacion = true;
+                almacenado = "";
                 break;
         }
+      }catch(java.lang.NumberFormatException e){
+          JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios", "ERROR",JOptionPane.ERROR_MESSAGE);
+      }
     }//GEN-LAST:event_btn_igualActionPerformed
 
     private void btn_sumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sumaActionPerformed
    try{
         if('+'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
         lbl_concatenacion.setText(lbl_concatenacion.getText() + "+");
-    }
-    } catch(java.lang.StringIndexOutOfBoundsException e){
-        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
     }
     if(!"0".equals(operacion)){
     this.btn_igualActionPerformed(evt);
@@ -622,6 +727,9 @@ public class Ventana extends javax.swing.JFrame {
         lbl_resultado.setText("0");
         operacion = "+";
         }
+    } 
+   } catch(java.lang.StringIndexOutOfBoundsException e){
+        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios", "ERROR", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_btn_sumaActionPerformed
 
@@ -629,9 +737,6 @@ public class Ventana extends javax.swing.JFrame {
     try{
         if('-'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
         lbl_concatenacion.setText(lbl_concatenacion.getText() + "-");
-    }
-    } catch(java.lang.StringIndexOutOfBoundsException e){
-        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
     } 
     if(!"0".equals(operacion)){
     this.btn_igualActionPerformed(evt);
@@ -651,16 +756,16 @@ public class Ventana extends javax.swing.JFrame {
         operacion = "-";
         }
     }
+    }catch(java.lang.StringIndexOutOfBoundsException e){
+        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
+    } 
     }//GEN-LAST:event_btn_restaActionPerformed
 
     private void btn_divisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_divisionActionPerformed
     try{
         if('/'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
         lbl_concatenacion.setText(lbl_concatenacion.getText() + "/");
-    }
-    } catch(java.lang.StringIndexOutOfBoundsException e){
-        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
-    }
+    } 
     if(!"0".equals(operacion)){
     this.btn_igualActionPerformed(evt);
     almacenado = "";
@@ -679,53 +784,69 @@ public class Ventana extends javax.swing.JFrame {
         operacion = "/";
         }
     }
+    }catch(java.lang.StringIndexOutOfBoundsException e){
+        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
+    }
     }//GEN-LAST:event_btn_divisionActionPerformed
 
     private void btn_mcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mcActionPerformed
-        // TODO add your handling code here:
+    numeroM = 0;
     }//GEN-LAST:event_btn_mcActionPerformed
 
     private void btn_porcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_porcentajeActionPerformed
    try{ 
-        if(Float.parseFloat(almacenado2)>0&&Float.parseFloat(almacenado)<=100&&Float.parseFloat(almacenado)>0){
+        if(Double.parseDouble(almacenado2)>0&&Double.parseDouble(almacenado)<=100&&Double.parseDouble(almacenado)>0){
         porcentaje = Integer.parseInt(almacenado);
       
         switch(operacion){
              case "*":
-             almacenado2=(String.valueOf(Float.parseFloat(almacenado2)*(porcentaje*Float.parseFloat(almacenado2)/100)));
+             almacenado2=(String.valueOf(Double.parseDouble(almacenado2)*(porcentaje*Double.parseDouble(almacenado2)/100)));
              lbl_concatenacion.setText(lbl_concatenacion.getText() + "%");
              lbl_resultado.setText(almacenado2);
              operacion = "0";
              concatenacion = true;
+             almacenado = "";
                 break;
             case "+":
-             almacenado2=(String.valueOf(Float.parseFloat(almacenado2)+(porcentaje*Float.parseFloat(almacenado2)/100)));
+             almacenado2=(String.valueOf(Double.parseDouble(almacenado2)+(porcentaje*Double.parseDouble(almacenado2)/100)));
              lbl_concatenacion.setText(lbl_concatenacion.getText() + "%");
              lbl_resultado.setText(almacenado2);
              operacion = "0";
              concatenacion = true;
+             almacenado = "";
                 break;
             case "-":
-             almacenado2=(String.valueOf(Float.parseFloat(almacenado2)-(porcentaje*Float.parseFloat(almacenado2)/100)));
+             almacenado2=(String.valueOf(Double.parseDouble(almacenado2)-(porcentaje*Double.parseDouble(almacenado2)/100)));
              lbl_concatenacion.setText(lbl_concatenacion.getText() + "%");
              lbl_resultado.setText(almacenado2);
              operacion = "0";
              concatenacion = true;
+             almacenado = "";
                 break;
             case"/":
-             almacenado2=(String.valueOf(Float.parseFloat(almacenado2)/(porcentaje*Float.parseFloat(almacenado2)/100)));
+             almacenado2=(String.valueOf(Double.parseDouble(almacenado2)/(porcentaje*Double.parseDouble(almacenado2)/100)));
              lbl_concatenacion.setText(lbl_concatenacion.getText() + "%");
              lbl_resultado.setText(almacenado2);
              operacion = "0";
              concatenacion = true;
+             almacenado = "";
                 break;
+             case"m":
+             almacenado2=(String.valueOf(Double.parseDouble(almacenado2)%(porcentaje*Double.parseDouble(almacenado2)/100)));
+             lbl_concatenacion.setText(lbl_concatenacion.getText() + "%");
+             lbl_resultado.setText(almacenado2);
+             operacion = "0";
+             concatenacion = true;
+             almacenado = "";
         }
     }else{
         JOptionPane.showMessageDialog(null, "No se pueden identificar los parámentros necesarios");
     }
    }catch(java.lang.NullPointerException e){
    JOptionPane.showMessageDialog(null, "No se pueden identificar los parámentros necesarios");
-   }  
+   }catch(java.lang.NumberFormatException e){
+   JOptionPane.showMessageDialog(null, "No se pueden identificar los parámentros necesarios");
+   }
     }//GEN-LAST:event_btn_porcentajeActionPerformed
 
     private void btn_masmenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_masmenosActionPerformed
@@ -750,6 +871,74 @@ if(lbl_concatenacion.getText().length()>=1){
     }
 }
     }//GEN-LAST:event_btn_comaActionPerformed
+
+    private void btn_MODActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MODActionPerformed
+     try{
+        if('m'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
+        lbl_concatenacion.setText(lbl_concatenacion.getText() + "m");
+    } 
+    if(!"0".equals(operacion)){
+    this.btn_igualActionPerformed(evt);
+    almacenado = "";
+    lbl_resultado.setText(String.valueOf(resultado));
+    concatenacion = true;
+    operacion = "m";   
+    }else{
+         if(concatenacion==true){
+        operacion = "m";
+        almacenado = "";
+        lbl_resultado.setText("0");
+        }else{
+        almacenado2 = almacenado;
+        almacenado = "";
+        lbl_resultado.setText("0");
+        operacion = "m";
+        }
+    }
+    }catch(java.lang.StringIndexOutOfBoundsException e){
+        JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
+    }
+    }//GEN-LAST:event_btn_MODActionPerformed
+
+    private void btn_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrarActionPerformed
+    if(lbl_resultado.getText().length()!=0 && almacenado.length()!=0){
+    almacenado = almacenado.substring(0, almacenado.length()-1);
+    lbl_resultado.setText(almacenado);
+    lbl_concatenacion.setText(lbl_concatenacion.getText().substring(0, lbl_concatenacion.getText().length()-1));
+    }
+    }//GEN-LAST:event_btn_borrarActionPerformed
+
+    private void btn_CEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CEActionPerformed
+    if(lbl_concatenacion.getText().length()!=0 && almacenado.length()!=0){
+    lbl_concatenacion.setText(lbl_concatenacion.getText().substring(0, lbl_concatenacion.getText().length()-almacenado.length()));
+    almacenado = "0";
+    lbl_resultado.setText(almacenado);    
+    }
+    }//GEN-LAST:event_btn_CEActionPerformed
+
+    private void btn_MSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MSActionPerformed
+    numeroM = Double.parseDouble(lbl_resultado.getText());
+    }//GEN-LAST:event_btn_MSActionPerformed
+
+    private void btn_M1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_M1ActionPerformed
+    if(numeroM!=0){
+      numeroM += Double.parseDouble(lbl_resultado.getText());
+    }else{
+        numeroM = Double.parseDouble(lbl_resultado.getText());
+    }
+    }//GEN-LAST:event_btn_M1ActionPerformed
+
+    private void btn_M2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_M2ActionPerformed
+    if(numeroM!=0){
+      numeroM -= Double.parseDouble(lbl_resultado.getText());
+    }else{
+        numeroM = Double.parseDouble(lbl_resultado.getText());
+    }
+    }//GEN-LAST:event_btn_M2ActionPerformed
+
+    private void btn_MRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MRActionPerformed
+    lbl_resultado.setText(String.valueOf(numeroM));
+    }//GEN-LAST:event_btn_MRActionPerformed
     
     /**
      * @param args the command line arguments
@@ -801,10 +990,10 @@ if(lbl_concatenacion.getText().length()>=1){
     private javax.swing.JButton btn_CE;
     private javax.swing.JButton btn_M1;
     private javax.swing.JButton btn_M2;
-    private javax.swing.JButton btn_MC5;
     private javax.swing.JButton btn_MOD;
     private javax.swing.JButton btn_MR;
     private javax.swing.JButton btn_MS;
+    private javax.swing.JButton btn_borrar;
     private javax.swing.JButton btn_coma;
     private javax.swing.JButton btn_division;
     private javax.swing.JButton btn_igual;
