@@ -5,6 +5,8 @@
  */
 package calculadora;
 
+import java.awt.BorderLayout;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,17 +18,25 @@ public class Ventana extends javax.swing.JFrame {
     /**
      * Creates new form Ventana
      */
+    //Variable que almacena primero los numeros.
     String almacenado = "";
+    //Variable que almacena los datos de un resultado o el otro String.
     String almacenado2;
+    //Variable que sirve para identificar la operacion.
     String operacion = "0";
+    //Variable que almacena un numero en la memoria.
     double numeroM=0;
+    //Variable que almacena un resultado.
     double resultado;
+    //Variable utilizada en los porcentajes.
     double porcentaje;
+    //Sirve para identificar si hay una concatenacion de operaciones.
     boolean concatenacion = false;
     
-    public Ventana() {
+    public Ventana() {//Inicio del constructor.
         initComponents();
-    }
+       this.pack();
+    }//Fin del contructor
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -436,24 +446,26 @@ public class Ventana extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Para todos los numeros...
     private void btn_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_7ActionPerformed
-
+  //Evita que se ingresen mas de 10 digitos.
   if(lbl_resultado.getText().length()>=10){
       JOptionPane.showMessageDialog(null, "El limite es de 10 digitos", "Advertencia",JOptionPane.WARNING_MESSAGE);
-  }else{
-    if(almacenado.length()==0&&concatenacion == true){
+  }else{//Si son menos de 10...
+    if(almacenado.length()==0&&concatenacion == true){//Inicio del condicional if
         lbl_resultado.setText("0");
-    }
+    }//Fin del if
+    //Se concatena el numero.
     lbl_concatenacion.setText(lbl_concatenacion.getText() + "7");
+    //Si es el primer dato en ser ingresado..
     if(lbl_resultado.getText().equals("0")){
         lbl_resultado.setText("7");
-        almacenado = "7";
-    }else{    
+        almacenado = "7";//Almaceno el numero en la variable almacenado.
+    }else{//Si no..    
     lbl_resultado.setText(lbl_resultado.getText() +"7");
     almacenado = almacenado + "7";
-    }
-  }
+    }//Fin del else
+  }//Fin del primer else
     }//GEN-LAST:event_btn_7ActionPerformed
 
     private void btn_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_8ActionPerformed
@@ -617,8 +629,9 @@ public class Ventana extends javax.swing.JFrame {
     }
    } 
     }//GEN-LAST:event_btn_0ActionPerformed
-
+//Para reiniciar los valores
     private void btn_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CActionPerformed
+    //Reinicio todas las variables importantes.
     almacenado = "";
     almacenado2 = "";
     operacion = "0";
@@ -627,40 +640,46 @@ public class Ventana extends javax.swing.JFrame {
     lbl_resultado.setText("0");
     lbl_concatenacion.setText("");
     }//GEN-LAST:event_btn_CActionPerformed
-
+//Para todas las operaciones.
     private void btn_multiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_multiplicacionActionPerformed
-   try{
-        if('*'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
+   try{//Inicio de la excepcion
+       //Evita que se concatene mas de un simbolo de operacion.
+        if('*'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){//Inicio del if
         lbl_concatenacion.setText(lbl_concatenacion.getText() + "*");
     
-    } 
-    if(!"0".equals(operacion)){
-    this.btn_igualActionPerformed(evt);
-    almacenado = "";
-    lbl_resultado.setText(String.valueOf(resultado));
-    concatenacion = true;
-    operacion = "*";   
-    }else{
-         if(concatenacion==true){
+    } //Fin del condicional if.
+    //Si no es la primera operacion.    
+    if(!"0".equals(operacion)){//Inicio del if
+    this.btn_igualActionPerformed(evt);//Cargo el ActionPerformed del boton de igual.
+    almacenado = "";//Se reinicia la variable
+    lbl_resultado.setText(String.valueOf(resultado));//Se le asigna el resultado al label.
+    concatenacion = true;//Se inicia una concatenacion.
+    operacion = "*"; //Se le asigna el valor correspondiente al String operacion.
+    }else{//Si es...
+        //Si es una concatenacion
+         if(concatenacion==true){//Inicio del if
         operacion = "*";
         almacenado = "";
         lbl_resultado.setText("0");
-        }else{
+        }else{//Si no..
         almacenado2 = almacenado;
         almacenado = "";
         lbl_resultado.setText("0");
         operacion = "*";
-        }
-    }
+        }//Fin del else
+    }//Fin del primer else
+    //Evita que intenten realizar una operacion sin los datos necesarios.
     }catch(java.lang.StringIndexOutOfBoundsException e){
         JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
-    }
+    }//Fin de la excepcion
     }//GEN-LAST:event_btn_multiplicacionActionPerformed
-
+//Para realizar la operacion
     private void btn_igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_igualActionPerformed
-      try{ 
-        switch (operacion) {
+      try{//Inicio de excepcion..
+        switch (operacion) {//Inicio del switch
+            //Si es multiplicacion..
             case "*":
+                //Se multiplican lo almacenado en ambas variables
                 resultado = Double.parseDouble(almacenado2)*Double.parseDouble(almacenado);
                 lbl_resultado.setText(String.valueOf(resultado));
                 almacenado2 = String.valueOf(resultado);
