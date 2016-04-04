@@ -19,19 +19,19 @@ public class Ventana extends javax.swing.JFrame {
      * Creates new form Ventana
      */
     //Variable que almacena primero los numeros.
-    String almacenado = "";
+    private String almacenado = "";
     //Variable que almacena los datos de un resultado o el otro String.
-    String almacenado2;
+    private String almacenado2;
     //Variable que sirve para identificar la operacion.
-    String operacion = "0";
+    private String operacion = "0";
     //Variable que almacena un numero en la memoria.
-    double numeroM=0;
+    private double numeroM=0;
     //Variable que almacena un resultado.
-    double resultado;
+    private double resultado;
     //Variable utilizada en los porcentajes.
-    double porcentaje;
+    private double porcentaje;
     //Sirve para identificar si hay una concatenacion de operaciones.
-    boolean concatenacion = false;
+    private boolean concatenacion = false;
     
     public Ventana() {//Inicio del constructor.
         initComponents();
@@ -76,6 +76,16 @@ public class Ventana extends javax.swing.JFrame {
         btn_0 = new javax.swing.JButton();
         btn_igual = new javax.swing.JButton();
         lbl_concatenacion = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora");
@@ -298,6 +308,84 @@ public class Ventana extends javax.swing.JFrame {
 
         lbl_concatenacion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
+        jMenu1.setText("Archivo");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Memory Clear");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("Memory Recall");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setText("Memory Storage");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setText("M+");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem5.setText("M-");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
+        jMenuItem6.setText("Clear Error");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
+
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
+        jMenuItem7.setText("Clear");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem7);
+
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem8.setText("Salir");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -305,138 +393,135 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_concatenacion, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_borrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_C, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_CE, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_masmenos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_mc, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_MR, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_MS, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_M1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_M2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_5, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                                .addComponent(btn_5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_6))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_9))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(btn_0, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_0)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btn_coma, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btn_coma))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(btn_3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn_2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn_1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btn_1))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btn_division, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btn_MOD))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btn_multiplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btn_porcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(btn_suma)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btn_resta, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_suma, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_igual, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btn_division)
+                                    .addComponent(btn_multiplicacion)
+                                    .addComponent(btn_resta))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(btn_MOD)
+                                        .addComponent(btn_porcentaje))
+                                    .addComponent(btn_igual, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_borrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_C)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_CE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_masmenos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lbl_resultado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbl_concatenacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(btn_mc)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btn_MR)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btn_MS)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btn_M1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btn_M2))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_0, btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_coma});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_0, btn_1, btn_2, btn_3, btn_6, btn_7, btn_8, btn_9, btn_coma});
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_MOD, btn_division, btn_igual, btn_multiplicacion, btn_porcentaje, btn_resta, btn_suma});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_C, btn_CE, btn_M1, btn_M2, btn_MR, btn_MS, btn_borrar, btn_masmenos, btn_mc});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_C, btn_CE, btn_M1, btn_MR, btn_MS, btn_borrar, btn_masmenos, btn_mc});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addComponent(lbl_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_concatenacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btn_M1)
-                                .addComponent(btn_M2))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btn_MS)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btn_MR)
-                                    .addComponent(btn_mc))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_concatenacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_M1)
+                        .addComponent(btn_M2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btn_MS)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_borrar)
-                            .addComponent(btn_C)
-                            .addComponent(btn_CE)
-                            .addComponent(btn_masmenos))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_7)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btn_9)
-                                    .addComponent(btn_8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btn_6)
-                                    .addComponent(btn_5)
-                                    .addComponent(btn_4))
-                                .addGap(9, 9, 9)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btn_1)
-                                    .addComponent(btn_2)
-                                    .addComponent(btn_3))
-                                .addGap(9, 9, 9)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btn_coma)
-                                    .addComponent(btn_0)))))
+                            .addComponent(btn_MR)
+                            .addComponent(btn_mc))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_borrar)
+                    .addComponent(btn_C)
+                    .addComponent(btn_CE)
+                    .addComponent(btn_masmenos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_7)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_division, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_MOD))
+                            .addComponent(btn_9)
+                            .addComponent(btn_8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_multiplicacion)
-                            .addComponent(btn_porcentaje))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_6)
+                            .addComponent(btn_5)
+                            .addComponent(btn_4))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_1)
+                            .addComponent(btn_2)
+                            .addComponent(btn_3))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_coma)
+                            .addComponent(btn_0)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_resta, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_division)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_suma, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btn_igual, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btn_multiplicacion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_resta))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_MOD)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_porcentaje)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_igual)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_suma)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -808,17 +893,20 @@ public class Ventana extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
     }
     }//GEN-LAST:event_btn_divisionActionPerformed
-
+//Para reiniciar la variable almacenada.
     private void btn_mcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mcActionPerformed
     numeroM = 0;
     }//GEN-LAST:event_btn_mcActionPerformed
-
+//Para sacar los porcentajes
     private void btn_porcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_porcentajeActionPerformed
-   try{ 
-        if(Double.parseDouble(almacenado2)>0&&Double.parseDouble(almacenado)<=100&&Double.parseDouble(almacenado)>0){
+   try{//Inicia excepcion.. Evita el parseo el de cadenas de caracteres.
+       //Para verificar que que se tienen los parametros necesarios. 
+       if(Double.parseDouble(almacenado2)>0&&Double.parseDouble(almacenado)<=100&&Double.parseDouble(almacenado)>0){//Inicio if
+        //Inicializa la variable porcentaje
         porcentaje = Integer.parseInt(almacenado);
-      
-        switch(operacion){
+        //Realzia una operacion distinta dependiendo del valor del String operacion.
+        switch(operacion){//Inicio switch
+             //Multiplicacion...
              case "*":
              almacenado2=(String.valueOf(Double.parseDouble(almacenado2)*(porcentaje*Double.parseDouble(almacenado2)/100)));
              lbl_concatenacion.setText(lbl_concatenacion.getText() + "%");
@@ -827,6 +915,7 @@ public class Ventana extends javax.swing.JFrame {
              concatenacion = true;
              almacenado = "";
                 break;
+            //Suma...
             case "+":
              almacenado2=(String.valueOf(Double.parseDouble(almacenado2)+(porcentaje*Double.parseDouble(almacenado2)/100)));
              lbl_concatenacion.setText(lbl_concatenacion.getText() + "%");
@@ -835,6 +924,7 @@ public class Ventana extends javax.swing.JFrame {
              concatenacion = true;
              almacenado = "";
                 break;
+            //Resta...
             case "-":
              almacenado2=(String.valueOf(Double.parseDouble(almacenado2)-(porcentaje*Double.parseDouble(almacenado2)/100)));
              lbl_concatenacion.setText(lbl_concatenacion.getText() + "%");
@@ -843,6 +933,7 @@ public class Ventana extends javax.swing.JFrame {
              concatenacion = true;
              almacenado = "";
                 break;
+            //Division...    
             case"/":
              almacenado2=(String.valueOf(Double.parseDouble(almacenado2)/(porcentaje*Double.parseDouble(almacenado2)/100)));
              lbl_concatenacion.setText(lbl_concatenacion.getText() + "%");
@@ -851,6 +942,7 @@ public class Ventana extends javax.swing.JFrame {
              concatenacion = true;
              almacenado = "";
                 break;
+            //MOD...
              case"m":
              almacenado2=(String.valueOf(Double.parseDouble(almacenado2)%(porcentaje*Double.parseDouble(almacenado2)/100)));
              lbl_concatenacion.setText(lbl_concatenacion.getText() + "%");
@@ -859,39 +951,43 @@ public class Ventana extends javax.swing.JFrame {
              concatenacion = true;
              almacenado = "";
         }
-    }else{
+    }else{//Inicia else..
+        //En caso de no tener parametros necesarios para sacar un porcentaje..
         JOptionPane.showMessageDialog(null, "No se pueden identificar los parámentros necesarios");
-    }
-   }catch(java.lang.NullPointerException e){
+    }//Fin else..
+   }catch(java.lang.NullPointerException e){//Primer catch...
    JOptionPane.showMessageDialog(null, "No se pueden identificar los parámentros necesarios");
-   }catch(java.lang.NumberFormatException e){
+   }catch(java.lang.NumberFormatException e){//Segundo catch..
    JOptionPane.showMessageDialog(null, "No se pueden identificar los parámentros necesarios");
    }
     }//GEN-LAST:event_btn_porcentajeActionPerformed
-
+//Para permitir numeros negativos.
     private void btn_masmenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_masmenosActionPerformed
-
-    if(lbl_concatenacion.getText().length()==0){
+    //Cuanto no hay concatenacion..
+    if(lbl_concatenacion.getText().length()==0){//Inicio if..
        lbl_resultado.setText("-");
         almacenado = "-";     
         lbl_concatenacion.setText(lbl_concatenacion.getText() + "-");
+    //Evita que se concatene mas de un simbolo negativo.
     }else if ('-'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)) {
          lbl_resultado.setText("-");
          almacenado = "-";     
          lbl_concatenacion.setText(lbl_concatenacion.getText() + "-");        
-         }
+         }//Fin del if..
     }//GEN-LAST:event_btn_masmenosActionPerformed
-
+//Para que se permitan decimales.
     private void btn_comaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comaActionPerformed
-if(lbl_concatenacion.getText().length()>=1){
+//Si concatenacion NO esta vacia..
+ if(lbl_concatenacion.getText().length()>=1){//Inicio if..
+  //Evita que se concatenen comas..
   if('.'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)&&!almacenado.contains(".")){
      lbl_concatenacion.setText(lbl_concatenacion.getText() + ".");    
      lbl_resultado.setText(lbl_resultado.getText() + ".");
      almacenado = lbl_resultado.getText();
-    }
-}
+    }//Fin del primer if..
+}//Fin del segundo if..
     }//GEN-LAST:event_btn_comaActionPerformed
-
+//Para MOD, es exactamente igual a las demas operaciones..
     private void btn_MODActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MODActionPerformed
      try{
         if('m'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
@@ -919,27 +1015,34 @@ if(lbl_concatenacion.getText().length()>=1){
         JOptionPane.showMessageDialog(null, "No se pueden identificar los parámetros necesarios");
     }
     }//GEN-LAST:event_btn_MODActionPerformed
-
+//Para borrar un solo digito..
     private void btn_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrarActionPerformed
-    if(lbl_resultado.getText().length()!=0 && almacenado.length()!=0){
+    //Solo si ya se ha ingresado algun numero..
+    if(lbl_resultado.getText().length()!=0 && almacenado.length()!=0){//Inicio del if..
+    //Genera una sub cadena y deja el ultimo digito afuera..
     almacenado = almacenado.substring(0, almacenado.length()-1);
+    //Asigna a ambos label la nueva cadena..
     lbl_resultado.setText(almacenado);
     lbl_concatenacion.setText(lbl_concatenacion.getText().substring(0, lbl_concatenacion.getText().length()-1));
-    }
+    }//Fin del if..
     }//GEN-LAST:event_btn_borrarActionPerformed
-
+//Para borrar el ultimo numero sin alterar el calculo..
     private void btn_CEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CEActionPerformed
-    if(lbl_concatenacion.getText().length()!=0 && almacenado.length()!=0){
+    //Solo si hay algun nuemero tanto en el label como en la variable..
+    if(lbl_concatenacion.getText().length()!=0 && almacenado.length()!=0){//Inicio del if..
+    //Genera una nueva sub cadena dejando afuera lo almacenado en la variable.
     lbl_concatenacion.setText(lbl_concatenacion.getText().substring(0, lbl_concatenacion.getText().length()-almacenado.length()));
+    //Reinicia la variable
     almacenado = "0";
+    //Asigna "0" al label..
     lbl_resultado.setText(almacenado);    
-    }
+    }//Fin del if..
     }//GEN-LAST:event_btn_CEActionPerformed
-
+//Para almacenar el numero en la memoria..
     private void btn_MSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MSActionPerformed
     numeroM = Double.parseDouble(lbl_resultado.getText());
     }//GEN-LAST:event_btn_MSActionPerformed
-
+//Para sumarle una cantidad al numero de la memoria..
     private void btn_M1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_M1ActionPerformed
     if(numeroM!=0){
       numeroM += Double.parseDouble(lbl_resultado.getText());
@@ -947,7 +1050,7 @@ if(lbl_concatenacion.getText().length()>=1){
         numeroM = Double.parseDouble(lbl_resultado.getText());
     }
     }//GEN-LAST:event_btn_M1ActionPerformed
-
+//Para restarle una cantidad al numero de la memoria..
     private void btn_M2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_M2ActionPerformed
     if(numeroM!=0){
       numeroM -= Double.parseDouble(lbl_resultado.getText());
@@ -955,46 +1058,43 @@ if(lbl_concatenacion.getText().length()>=1){
         numeroM = Double.parseDouble(lbl_resultado.getText());
     }
     }//GEN-LAST:event_btn_M2ActionPerformed
-
+//Para mostrar el numero almacenado en la memoria..
     private void btn_MRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MRActionPerformed
     lbl_resultado.setText(String.valueOf(numeroM));
     }//GEN-LAST:event_btn_MRActionPerformed
+//Para el atajo de MC.
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    this.btn_mcActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+//Para el atajo de MR.
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    this.btn_MRActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+//Para el atajo de MS.
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    this.btn_MSActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+//Para el atajo de M+.
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    this.btn_M1ActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+//Para el atajo de M-.
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    this.btn_M2ActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+//Para el atajo de CE.
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    this.btn_CEActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+//Para el atajo de C.
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    this.btn_CActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+//Para salir del programa.
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    System.exit(0);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ventana().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_0;
     private javax.swing.JButton btn_1;
@@ -1023,6 +1123,16 @@ if(lbl_concatenacion.getText().length()>=1){
     private javax.swing.JButton btn_porcentaje;
     private javax.swing.JButton btn_resta;
     private javax.swing.JButton btn_suma;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JLabel lbl_concatenacion;
     private javax.swing.JLabel lbl_resultado;
     // End of variables declaration//GEN-END:variables
