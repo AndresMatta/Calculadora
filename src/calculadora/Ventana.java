@@ -780,7 +780,7 @@ public class Ventana extends javax.swing.JFrame {
                 concatenacion = true;
                 almacenado = "";
                 break;
-            case "-":
+            case "_":
                 resultado = Double.parseDouble(almacenado2)-Double.parseDouble(almacenado);
                 lbl_resultado.setText(String.valueOf(resultado));
                 almacenado2 = String.valueOf(resultado);
@@ -840,25 +840,25 @@ public class Ventana extends javax.swing.JFrame {
 
     private void btn_restaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_restaActionPerformed
     try{
-        if('-'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
-        lbl_concatenacion.setText(lbl_concatenacion.getText() + "-");
+        if('_'!=lbl_concatenacion.getText().charAt(lbl_concatenacion.getText().length()-1)){
+        lbl_concatenacion.setText(lbl_concatenacion.getText() + "_");
     } 
     if(!"0".equals(operacion)){
     this.btn_igualActionPerformed(evt);
     almacenado = "";
     lbl_resultado.setText(String.valueOf(resultado));
     concatenacion = true;
-    operacion = "-";   
+    operacion = "_";   
     }else{
          if(concatenacion==true){
-        operacion = "-";
+        operacion = "_";
         almacenado = "";
         lbl_resultado.setText("0");
         }else{
         almacenado2 = almacenado;
         almacenado = "";
         lbl_resultado.setText("0");
-        operacion = "-";
+        operacion = "_";
         }
     }
     }catch(java.lang.StringIndexOutOfBoundsException e){
